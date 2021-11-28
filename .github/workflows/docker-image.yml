@@ -16,6 +16,6 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@3.04
       with:
-        name: dktoster/less3
+        name: dktoster/dk
 	username: dktoster
 	passsword: ${{ secrets.DOCKER_PASSWORD  }}
