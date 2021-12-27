@@ -19,3 +19,22 @@ jobs:
         name: dktoster/less3
         username: dktoster
         password: ${{ secrets.DOCKER_PASSWORD }}
+        
+name: remote ssh command
+ on:
+  push:
+    branches: [ main ]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: whoami
