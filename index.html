@@ -13,27 +13,50 @@
   <iframe src="http://arbuzova.mooseum.ru/1-rubrika/13-demo/clock-01.html" width="260" height="275" 
 marginheight=0 marginwidth=0  scrolling="no" style="border: none;">
 </iframe>
-  <script>
-function greetingDate() {
-  d = new Date();
-  hour = d.getHours();
-  if (hour >= 5 && hour < 12) greeting = "Доброе утро";
-  else {
-  if (hour >= 12 && hour < 18) greeting = "Добрый день";
-    else {
-    if (hour >= 18 && hour < 24) greeting = "Добрый вечер";
-      else {
-      if (hour >= 0 && hour < 5) greeting = "Доброй ночи";
-      }}};
-  var day = new Array("Воскресенье", "Понедельник", "Вторник","Среда", "Четверг", "Пятница", "Суббота");
-  var month = new Array("января", "февраля", "марта", "апреля", "мая", "июня","июля", "августа",  "сентября", "октября", "ноября", "декабря");
-  var str = (greeting +"!" +"
- Сегодня " +" " + day[d.getDay()] +"
- " + d.getDate() +" " + month[d  getMonth()] +" " + d.getFullYear() +" г.");
-  document.write (str);    
+  <br>
+<script>
+var date = new Date();
+var d  = date.getDate();
+var day = (d < 10) ? '0' + d : d;
+var m = date.getMonth() + 1;
+var month = (m < 10) ? '0' + m : m;
+var yy = date.getYear();
+var year = (yy < 1000) ? yy + 1900 : yy;
+                            
+document.write(day + "." + month + "." + year +" г.");
+</script>
+<br>
+<script>
+function daysLeftNewYear(){ 
+   today = new Date()
+   //Можно установить любую дату
+   nextDate = new Date("January 1, 2022")
+   //Количество миллисекунд в одном дне
+   msPerDay = 24*60*60*1000;
+   //Высчитываем количество дней
+   daysLeft = Math.round((nextDate.getTime()
+    - today.getTime())/msPerDay);
+   dayname=""
+   ds=""+daysLeft
+    //Вырезаем последнею цифру
+   dd=parseInt(ds.substr(ds.length-1))
+   //Определяем правильность написания
+   if(daysLeft>4&&daysLeft<21)dayname=" дней"
+   else
+    if(dd==1)dayname=" день"
+    else
+     if(dd==2||dd==3||dd==4)dayname=" дня"
+     else dayname=" дней"
+
+ //Выводим надпись в документ
+   document.write("До Нового года осталось <br>"
+   +daysLeft+dayname+"!");
 }
 </script>
 
-<script>greetingDate();</script>
- </body>
+
+<script>
+  daysLeftNewYear()
+</script>
+   </body>
 </html>
