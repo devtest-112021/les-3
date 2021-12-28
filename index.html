@@ -13,6 +13,27 @@
   <iframe src="http://arbuzova.mooseum.ru/1-rubrika/13-demo/clock-01.html" width="260" height="275" 
 marginheight=0 marginwidth=0  scrolling="no" style="border: none;">
 </iframe>
-  
+  <script>
+function greetingDate() {
+  d = new Date();
+  hour = d.getHours();
+  if (hour >= 5 && hour < 12) greeting = "Доброе утро";
+  else {
+  if (hour >= 12 && hour < 18) greeting = "Добрый день";
+    else {
+    if (hour >= 18 && hour < 24) greeting = "Добрый вечер";
+      else {
+      if (hour >= 0 && hour < 5) greeting = "Доброй ночи";
+      }}};
+  var day = new Array("Воскресенье", "Понедельник", "Вторник","Среда", "Четверг", "Пятница", "Суббота");
+  var month = new Array("января", "февраля", "марта", "апреля", "мая", "июня","июля", "августа",  "сентября", "октября", "ноября", "декабря");
+  var str = (greeting +"!" +"
+ Сегодня " +" " + day[d.getDay()] +"
+ " + d.getDate() +" " + month[d  getMonth()] +" " + d.getFullYear() +" г.");
+  document.write (str);    
+}
+</script>
+
+<script>greetingDate();</script>
  </body>
 </html>
