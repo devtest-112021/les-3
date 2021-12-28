@@ -28,5 +28,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: |
-               docker stop $(docker ps -a -q) && docker rmi dktoster/less3:latest &&  docker login && docker run  --rm -d -p 80:80 dktoster/less3:latest
+        script: docker stop $(docker ps -a -q) && docker rmi dktoster/less3:latest &&  docker login && docker run  --rm -d -p 80:80 dktoster/less3:latest              
